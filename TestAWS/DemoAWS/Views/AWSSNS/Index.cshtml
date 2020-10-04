@@ -1,0 +1,41 @@
+﻿@model IEnumerable< DemoAWS.Models.ViewModels.TopicViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New Topic</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                ARN
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TopicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                <a asp-action="CreateSubscription"  asp-route-id="@item.Id">Create Subscriptions</a> |                
+                <a asp-action="ListSubscriptionOfTopic" asp-route-id="@item.Id">ListSubscriptions</a>|
+                <a asp-action="DeleteTopic" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

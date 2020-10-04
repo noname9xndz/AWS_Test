@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "S3CreateAndList": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AWS_REGION": "us-west-2",
+        "AWS_PROFILE": "ratio-aws-third"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<DemoAWS.Models.Entity.Product>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <p><b>Nguyen Van Huy</b></p>
+        <p>Phone: +84977470999</p>
+        <p>Address: Ha Noi</p>
+        <i>Ratio Nguyen</i>
+       
+    </div>
+    <div>
+        <p>Products: </p>
+        <ul>
+
+            @foreach (var item in Model)
+            {
+                <li>@item.Name</li>
+                <li>@item.Price</li>
+
+            }
+        </ul>
+    </div>

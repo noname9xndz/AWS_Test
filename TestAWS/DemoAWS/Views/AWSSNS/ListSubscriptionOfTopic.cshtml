@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Amazon.SimpleNotificationService.Model.Subscription>
+
+@{
+    ViewData["Title"] = "ListSubscriptionOfTopic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var id = Model.First().TopicArn;    
+}
+
+<h1>ListSubscriptionOfTopic</h1>
+<h2>Topic Arn: @id</h2>
+<p><a asp-action="CreateSubscription" asp-route-id="@id">Create Subscription</a></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Endpoint</th>
+            <th>Protocol</th>
+            <th>Subscription Arn</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Endpoint)</td>
+            <td>@Html.DisplayFor(modelItem => item.Protocol)</td>
+            <td>@Html.DisplayFor(modelItem => item.SubscriptionArn)</td>            
+            <td>
+                @*<a asp-action="DeleteTopic" asp-route-id="@item.TopicArn">Delete</a>*@
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

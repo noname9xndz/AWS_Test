@@ -1,0 +1,32 @@
+﻿@model DemoAWS.Models.ViewModels.TopicViewModel
+
+@{
+    ViewData["Title"] = "CreateSubscription";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create Subscription</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateSubscription">
+            <div class="form-group">
+                <label asp-for="SubcriptionEmail" class="control-label"></label>
+                <input asp-for="SubcriptionEmail" class="form-control" />
+                <input asp-for="Id" value="@ViewBag.TopicArn" hidden />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
